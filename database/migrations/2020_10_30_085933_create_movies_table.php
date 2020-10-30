@@ -15,20 +15,20 @@ class CreateMoviesTable extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('movie_type_id');
-            $table->unsignedBigInteger('movie_status_id');
-            $table->string('name');
-            $table->integer('length');
-            $table->year('year');
-            $table->year('start_year');
-            $table->year('end_year');
-            $table->float('float');
-            $table->integer('votes_nr');
-            $table->integer('metascore');
-            $table->unsignedBigInteger('certification_id');
-            $table->unsignedBigInteger('budget');
-            $table->string('budget_currency');
-            $table->string('color_code');
+            $table->unsignedBigInteger('movie_type_id')->nullable();
+            $table->unsignedBigInteger('movie_status_id')->nullable();
+            $table->string('name')->nullable();
+            $table->integer('length')->nullable();
+            $table->year('year')->nullable();
+            $table->year('start_year')->nullable();
+            $table->year('end_year')->nullable();
+            $table->float('float')->nullable();
+            $table->integer('votes_nr')->nullable();
+            $table->integer('metascore')->nullable();
+            $table->unsignedBigInteger('certification_id')->nullable();
+            $table->unsignedBigInteger('budget')->nullable();
+            $table->string('budget_currency')->nullable();
+            $table->string('color_code')->nullable();
             $table->timestamps();
         });
     }
