@@ -22,7 +22,7 @@ class CreateMoviesTable extends Migration
             $table->year('year')->nullable();
             $table->year('start_year')->nullable();
             $table->year('end_year')->nullable();
-            $table->float('float')->nullable();
+            $table->float('rating')->nullable();
             $table->integer('votes_nr')->nullable();
             $table->integer('metascore')->nullable();
             $table->unsignedBigInteger('certification_id')->nullable();
