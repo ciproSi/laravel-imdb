@@ -23,7 +23,9 @@ if (!mix.inProduction()) {
 }
     
 mix.sass('resources/scss/app.scss', 'public/css')
+   .sass('resources/scss/react-app.scss', 'public/css')
    .js('resources/js/app.js', 'public/js')
+   .react('resources/js/react-app/index.jsx', 'public/js/react-app.js')
 
     
     .browserSync({

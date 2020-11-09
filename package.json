@@ -10,6 +10,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@babel/preset-react": "^7.12.5",
         "axios": "^0.19",
         "browser-sync": "^2.26.13",
         "browser-sync-webpack-plugin": "^2.0.1",
@@ -20,5 +21,9 @@
         "sass": "^1.28.0",
         "sass-loader": "^8.0.2",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1"
     }
 }
