@@ -19,14 +19,16 @@ class MoviesController extends Controller
     
     public function movieOfTheWeek () {
         
-        $movie_id = 1431045;
         $movie = Movie::query()
             ->with('genres')
-            ->with('posters')
-            ->with(['people' => function ($query) {
-                $query->where('position_id', 'like', '256')->orderBy('priority', 'desc');
+            ->with(['posters' => function ($query) {
+                $query->limit(1);                
             }])
-            ->findOrFail($movie_id);
+            ->with(['people' => function ($query) {
+                $query->where('position_id', 'like', '254')->orderBy('priority', 'desc')->limit(3);
+            }])
+            ->inRandomOrder()
+            ->first();
             
 
         return $movie;

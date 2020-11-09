@@ -46,7 +46,7 @@ export default function MovieOfTheWeek(props) {
             <>
                 <div className="movie">
 
-                    <img src="https://ia.media-imdb.com/images/M/MV5BYzE5MjY1ZDgtMTkyNC00MTMyLThhMjAtZGI5OTE1NzFlZGJjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg" alt={ data.name } />
+                    <img src={ data.posters[0].url} alt={ data.name } />
 
                     <div>
 
