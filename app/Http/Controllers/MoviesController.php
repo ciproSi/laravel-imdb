@@ -33,6 +33,21 @@ class MoviesController extends Controller
 
         return $movie;
     }
+
+    public function movieDetail ($id) {
+
+        $movie = Movie::query()
+            ->with('genres')
+            ->with(['posters' => function ($query) {
+                $query->limit(1);                
+            }])
+            ->with(['people' => function ($query) {
+                $query->where('position_id', 'like', '254')->orderBy('priority', 'desc')->limit(3);
+            }])
+            ->findOrFail($id);
+        
+        return $movie;
+    }
     
 
 
