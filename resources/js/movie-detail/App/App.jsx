@@ -7,6 +7,7 @@ import {
     useParams
 } from 'react-router-dom';
 import MovieDetail from '../MovieDetail/MovieDetail';
+import MovieReview from '../MovieReview/MovieReview';
 
 
 const App = () => {
@@ -43,14 +44,14 @@ const App = () => {
 
     if (loading) {
         content = (
-            <h1>loading data</h1>
+            <h1>loading data...</h1>
         )
     } else if (loaded) {
         content = (
             <Router>
                 <Switch>
-                    {/* <Route path='' children= {  } movie={movie}/> */}
-                    <Route path='/movie/:id' children= { <MovieDetail movie={movie} /> } />
+                    <Route path='/movie/:id/review' children= { <MovieReview id={ id } movie={movie} /> } />
+                    <Route path='/movie/:id' children= { <MovieDetail id={ id } movie={movie} /> } />
                 </Switch>
             </Router>
         )
