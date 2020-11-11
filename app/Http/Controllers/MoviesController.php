@@ -49,6 +49,21 @@ class MoviesController extends Controller
         return $movie;
     }
     
+    public function storeReview ($id, Request $request)
+    {
+        $this->validate($request, [
+            'rating' => 'required',
+            'text' => 'required'
+        ]);
+        
+        $movie = Movie::findOrFail($id);
+        $movie->reviews()->create($request->all());
+
+
+        return [
+            'status' => 'success'
+        ];
+    }
 
 
 }

@@ -17,13 +17,16 @@ const MovieReview = (props) => {
     }
 
     
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
         const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         console.log(token);
-        const data = {'rating': rating,
-                        'text': reviewText};
+        const data = {rating: rating,
+                        text: reviewText};
 
-        const url = '/';
+        const url = '/api/movies/' + id + '/review';
+        
         const resp = await fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
@@ -31,7 +34,9 @@ const MovieReview = (props) => {
                 'Content-type': 'application/json',
                 'X-CSRF-TOKEN': token
             }
-        })
+        });
+
+
     }
         
     return (
@@ -39,7 +44,7 @@ const MovieReview = (props) => {
             <div>Editing { name}</div>
             <div>Movie id { id } </div>
 
-            <form action="" method="" onSubmit={ handleSubmit }> 
+            <form onSubmit={ handleSubmit }> 
                 <label htmlFor="rating">Rating:
                 <input 
                     type="number"
